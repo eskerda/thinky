@@ -51,6 +51,10 @@ ${voffset -28}
 ${font Thinkyglyphs:size=14}${execp ~/.thinky/thinky bat-ico}{$font}${alignr}${offset -172}${voffset -2}${battery_bar BAT0}
 ${font Thinkyglyphs:size=14}${exec echo -e "\ue805"}${font}${alignr}${offset -172}${voffset -1}${execbar ~/.thinky/thinky bright}
 ${offset 3}${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky vol-ico}${font}${alignr}${offset -172}${voffset -2}${execbar ~/.thinky/thinky vol}
+${font Oswald:size=12:Normal}cpu${font}${alignr}${freq_g} Ghz
+${cpubar cpu1 6,200}
+${voffset -18}${cpubar cpu2 6,200}
+${cpugraph}
 ${font Oswald:size=12:Normal}root${font} ${alignr}${fs_used}/${fs_size /}
 ${fs_bar 6,200 /}
 ${font Oswald:size=12:Normal}home${font}${alignr}${fs_used /home}/${fs_size /home}
