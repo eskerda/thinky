@@ -10,6 +10,7 @@ GLYPHS_BAT1='\ue807'
 GLYPHS_BAT2='\ue808'
 GLYPHS_BAT3='\ue809'
 GLYPHS_BATC='\ue80A'
+GLYPHS_CAPS='\ue80B'
 
 function get_light {
     VALUE=`cat /proc/acpi/ibm/light | grep "status:" | awk '{print $2}'`
@@ -67,12 +68,23 @@ function get_volume_ico {
     echo -e $GLYPH
 }
 
+function get_capsLck {
+    MASK=`xset q | grep LED | awk '{print $10}'`
+    if [[ $(( MASK & 0x01 )) -eq 1 ]]
+    then
+        echo -e $GLYPHS_CAPS
+    else
+        echo ""
+    fi
+}
+
 case "$1" in
 bat-ico)    get_battery;;
 bright)     get_brightness;;
 light)      get_light;;
 vol)        get_volume;;
 vol-ico)    get_volume_ico;;
+caps)       get_capsLck;;
 *)          ;;
 esac
 

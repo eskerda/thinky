@@ -2,7 +2,7 @@
 
 alignment top_right
 gap_x 10
-gap_y 23
+gap_y 24
 
 # Fork ?
 background true
@@ -38,16 +38,16 @@ out_to_console no
 out_to_stderr no
 extra_newline no
 stippled_borders 0
-update_interval 1.0
+update_interval 0.8
 use_spacer none
 show_graph_scale no
 show_graph_range no
 pad_percents 2
 
 TEXT
-${offset 180}${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky light}{$font}
-#${hddtemp /dev/sda}ºC sda
-#${acpitemp}ºC acpi
+${offset 178}${font Thinkyglyphs:size=18}${exec ~/.thinky/thinky caps}{$font}
+${offset 152}${voffset -25}${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky light}{$font}
+${voffset -28}
 ${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky bat-ico}{$font}${alignr}${offset -172}${voffset -2}${battery_bar BAT0}
 ${font Thinkyglyphs:size=14}${exec echo -e "\ue805"}${font}${alignr}${offset -172}${voffset -1}${execbar ~/.thinky/thinky bright}
 ${offset 3}${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky vol-ico}${font}${alignr}${offset -172}${voffset -2}${execbar ~/.thinky/thinky vol}

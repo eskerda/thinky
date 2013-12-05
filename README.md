@@ -13,13 +13,13 @@ Features
 - Disk usage
 - Network usage
 - Status aware icons
+- CapsLk indicator
 
 Things to add
 -------------
 - CPU and Memory usage
 - Disk usage in external drives / devices
 - Services running on the machine
-- CapsLk indicator
 - An script to generate a conkyrc file based on user input?
 
 Installation
