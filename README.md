@@ -10,6 +10,7 @@ Features
 - An indicator for your ThinkLight™
 - Battery status
 - Volume and brightness controls
+- CPU and Memory usage
 - Disk usage
 - Network usage
 - Status aware icons
@@ -17,7 +18,6 @@ Features
 
 Things to add
 -------------
-- CPU and Memory usage
 - Disk usage in external drives / devices
 - Services running on the machine
 - An script to generate a conkyrc file based on user input?
