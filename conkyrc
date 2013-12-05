@@ -55,6 +55,8 @@ ${font Oswald:size=12:Normal}cpu${font}${alignr}${freq_g} Ghz
 ${cpubar cpu1 6,200}
 ${voffset -18}${cpubar cpu2 6,200}
 ${cpugraph}
+${font Oswald:size=12:Normal}mem${font} ${alignr}${mem}/${memmax}
+${membar 6,200}
 ${font Oswald:size=12:Normal}root${font} ${alignr}${fs_used}/${fs_size /}
 ${fs_bar 6,200 /}
 ${font Oswald:size=12:Normal}home${font}${alignr}${fs_used /home}/${fs_size /home}
