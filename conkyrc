@@ -1,0 +1,64 @@
+# Use at your own peril ☠
+
+alignment top_right
+gap_x 10
+gap_y 23
+
+# Fork ?
+background true
+
+use_xft yes
+xftfont Oswald:size=12:Light
+
+own_window no
+own_window_class Conky
+own_window_type desktop
+own_window_argb_visual yes
+own_window_transparent yes
+double_buffer yes
+minimum_size 200 0
+maximum_width 200
+
+border_width 1
+cpu_avg_samples 2
+default_color 252525
+default_outline_color white
+default_shade_color white
+
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+
+# Substract file system buffers from memory
+no_buffers yes
+
+net_avg_samples 2
+out_to_console no
+out_to_stderr no
+extra_newline no
+stippled_borders 0
+update_interval 1.0
+use_spacer none
+show_graph_scale no
+show_graph_range no
+pad_percents 2
+
+TEXT
+${offset 180}${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky light}{$font}
+#${hddtemp /dev/sda}ºC sda
+#${acpitemp}ºC acpi
+${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky bat-ico}{$font}${alignr}${offset -172}${voffset -2}${battery_bar BAT0}
+${font Thinkyglyphs:size=14}${exec echo -e "\ue805"}${font}${alignr}${offset -172}${voffset -1}${execbar ~/.thinky/thinky bright}
+${offset 3}${font Thinkyglyphs:size=14}${exec ~/.thinky/thinky vol-ico}${font}${alignr}${offset -172}${voffset -2}${execbar ~/.thinky/thinky vol}
+${font Oswald:size=12:Normal}root${font} ${alignr}${fs_used}/${fs_size /}
+${fs_bar 6,200 /}
+${font Oswald:size=12:Normal}home${font}${alignr}${fs_used /home}/${fs_size /home}
+${fs_bar 6,200 /home}
+${font Oswald:size=12}${wireless_essid wlan0}${font}${alignr}${addr wlan0}
+${wireless_link_bar wlan0}
+${downspeedgraph wlan0 -l}
+${voffset -10}${totaldown wlan0}${alignr}${downspeed wlan0}
+${upspeedgraph wlan0 -l}
+${voffset -10}${totalup wlan0}${alignr}${upspeed wlan0}
+

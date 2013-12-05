@@ -1,0 +1,78 @@
+#!/bin/bash
+
+GLYPHS_VOL0='\ue800'
+GLYPHS_VOL1='\ue801'
+GLYPHS_VOL2='\ue802'
+GLYPHS_HEAD='\ue803'
+GLYPHS_LIGHT='\ue804'
+GLYPHS_BAT0='\ue806'
+GLYPHS_BAT1='\ue807'
+GLYPHS_BAT2='\ue808'
+GLYPHS_BAT3='\ue809'
+GLYPHS_BATC='\ue80A'
+
+function get_light {
+    VALUE=`cat /proc/acpi/ibm/light | grep "status:" | awk '{print $2}'`
+
+    if [[ $VALUE == "on" ]]
+    then
+        echo -e $GLYPHS_LIGHT
+    else
+        echo ""
+    fi
+}
+
+function get_battery {
+    DATA=`acpi -b`
+    STAT=`echo $DATA | awk '{print $3}' | sed 's/,//g'`
+    PERC=`echo $DATA | awk '{print $4}' | sed 's/[%,]//g'`
+    if [ "$STAT" == "Discharging" ]
+    then
+        GLYPH=GLYPHS_BAT$(($PERC / 26))
+    else
+        GLYPH=GLYPHS_BATC
+    fi
+
+    echo -e ${!GLYPH}
+}
+
+function get_brightness {
+    MAXVALUE=7
+    VALUE=`cat /proc/acpi/ibm/brightness | grep "level:" | awk '{print $2}'`
+    echo $(( $VALUE * 100 / $MAXVALUE))
+}
+
+function get_volume {
+    MAXVALUE=14
+    DATA=`cat /proc/acpi/ibm/volume`
+    VOLUME=`echo $DATA | awk '{print $2}'`
+    MUTE=`echo $DATA | awk '{print $4}'`
+
+    if [ "$MUTE" != "off" ]
+    then
+        echo 0
+    else
+        echo $((VOLUME*100/MAXVALUE))
+    fi
+}
+
+function get_volume_ico {
+    LEVEL=`get_volume`
+    if [[ $LEVEL == 0 ]]
+    then
+        GLYPH=$GLYPHS_VOL0
+    else
+        GLYPH=$GLYPHS_VOL1
+    fi
+    echo -e $GLYPH
+}
+
+case "$1" in
+bat-ico)    get_battery;;
+bright)     get_brightness;;
+light)      get_light;;
+vol)        get_volume;;
+vol-ico)    get_volume_ico;;
+*)          ;;
+esac
+
