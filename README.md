@@ -2,7 +2,7 @@ This is a simple [conky](http://conky.sourceforge.net/) config tailored to
 work on my ThinkPad x60, thus it would problably not work much if you are not
 running the IBM ACPI module.
 
-![Hell, yes!](http://i.imgur.com/z6WaAbx.png)
+![Hell, yes!](http://i.imgur.com/6YcWkSB.png)
 ![Fucking awesome, right?](http://i.imgur.com/5QHzXGH.gif)
 
 Features
