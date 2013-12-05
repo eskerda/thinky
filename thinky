@@ -23,18 +23,25 @@ function get_light {
     fi
 }
 
-function get_battery {
+function get_battery_ico {
     DATA=`acpi -b`
     STAT=`echo $DATA | awk '{print $3}' | sed 's/,//g'`
     PERC=`echo $DATA | awk '{print $4}' | sed 's/[%,]//g'`
+
     if [ "$STAT" == "Discharging" ]
     then
         GLYPH=GLYPHS_BAT$(($PERC / 26))
+        if [ $PERC -lt 5 ]
+        then
+            OUT="\${blink ${!GLYPH}}"
+        else
+            OUT=${!GLYPH}
+        fi
     else
-        GLYPH=GLYPHS_BATC
+        OUT=$GLYPHS_BATC
     fi
 
-    echo -e ${!GLYPH}
+    echo -e $OUT
 }
 
 function get_brightness {
@@ -79,7 +86,7 @@ function get_capsLck {
 }
 
 case "$1" in
-bat-ico)    get_battery;;
+bat-ico)    get_battery_ico;;
 bright)     get_brightness;;
 light)      get_light;;
 vol)        get_volume;;
