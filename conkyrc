@@ -1,48 +1,58 @@
 # Use at your own peril ☠
 
-alignment top_right
-gap_x 10
-gap_y 24
-
 # Fork ?
 background true
+update_interval 0.8
+out_to_console no
+out_to_stderr no
 
-use_xft yes
-xftfont Oswald:size=12:Light
-
+# Set to yes to use composite
 own_window no
 own_window_class Conky
 own_window_type desktop
 own_window_argb_visual yes
 own_window_transparent yes
+
+# Performance stuff
+imlib_cache_size 0
 double_buffer yes
+
+alignment top_right
+gap_x 10
+gap_y 24
 minimum_size 200 0
 maximum_width 200
 
-border_width 1
-cpu_avg_samples 2
+draw_borders no
+draw_graph_borders no
+border_width 0
+border_inner_margin 0
+border_outer_margin 0
+
+use_xft yes
+xftfont Oswald:size=12:Light
 default_color 252525
+xftalpha 1
+
+draw_outline no
+draw_shades no
 default_outline_color white
 default_shade_color white
 
-draw_borders no
-draw_graph_borders no
-draw_outline no
-draw_shades no
-
-# Substract file system buffers from memory
-no_buffers yes
-
-net_avg_samples 2
-out_to_console no
-out_to_stderr no
 extra_newline no
 stippled_borders 0
-update_interval 0.8
 use_spacer none
 show_graph_scale no
 show_graph_range no
+cpu_avg_samples 2
+net_avg_samples 2
+
+# Substract file system buffers from memory usage values
+no_buffers yes
 pad_percents 2
+short_units no
+temperature_unit celsius
+format_human_readable yes
 
 TEXT
 ${offset 178}${font Thinkyglyphs:size=18}${exec ~/.thinky/thinky caps}{$font}
