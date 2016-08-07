@@ -82,7 +82,7 @@ ${voffset -10}${totalup wlan0}${alignr}${upspeed wlan0}
 
 # CPU usage
 #${font Oswald:size=12:Normal}cpu usage
-#${font Oswald:size=10:Normal}Name${alignr}Pid    Cpu   Mem${font}
+#${font Oswald:size=10:Normal}Name${alignr}Pid    Cpu   Mem
 #${top name 1} ${alignr} ${top pid 1} ${top cpu 1} ${top mem 1}
 #${top name 2} ${alignr} ${top pid 2} ${top cpu 2} ${top mem 2}
 #${top name 3} ${alignr} ${top pid 3} ${top cpu 3} ${top mem 3}
@@ -93,7 +93,7 @@ ${voffset -10}${totalup wlan0}${alignr}${upspeed wlan0}
 # I commented it because there is no space to display
 # Mem usage
 #${font Oswald:size=12:Normal}mem usage
-#${font Oswald:size=10:Normal}Name${alignr}Pid    Cpu   Mem${font}
+#${font Oswald:size=10:Normal}Name${alignr}Pid    Cpu   Mem
 #${top_mem name 1} ${alignr} ${top pid 1} ${top cpu 1} ${top mem 1}
 #${top_mem name 2} ${alignr} ${top pid 2} ${top cpu 2} ${top mem 2}
 #${top_mem name 3} ${alignr} ${top pid 3} ${top cpu 3} ${top mem 3}
