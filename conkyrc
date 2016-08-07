@@ -73,8 +73,10 @@ ${font Oswald:size=12:Normal}home${font}${alignr}${fs_used /home}/${fs_size /hom
 ${fs_bar 6,200 /home}
 ${font Oswald:size=12}${wireless_essid wlan0}${font}${alignr}${addr wlan0}
 ${wireless_link_bar wlan0}
+${font Oswald:size=10:Normal}Download${font}${alignr}
 ${downspeedgraph wlan0 -l}
 ${voffset -10}${totaldown wlan0}${alignr}${downspeed wlan0}
+${font Oswald:size=10:Normal}Upload${font}${alignr}
 ${upspeedgraph wlan0 -l}
 ${voffset -10}${totalup wlan0}${alignr}${upspeed wlan0}
 
