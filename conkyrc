@@ -76,7 +76,6 @@ ${wireless_link_bar wlan0}
 ${font Oswald:size=10:Normal}Download
 ${downspeedgraph wlan0 -l}
 ${voffset -10}${totaldown wlan0}${alignr}${downspeed wlan0}
-x
 ${font Oswald:size=10:Normal}Upload
 ${upspeedgraph wlan0 -l}
 ${voffset -10}${totalup wlan0}${alignr}${upspeed wlan0}
