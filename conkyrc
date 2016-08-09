@@ -71,7 +71,14 @@ ${font Oswald:size=12:Normal}root${font} ${alignr}${fs_used}/${fs_size /}
 ${fs_bar 6,200 /}
 ${font Oswald:size=12:Normal}home${font}${alignr}${fs_used /home}/${fs_size /home}
 ${fs_bar 6,200 /home}
+
+# It should be sth like this (disk: /dev/sdc1, mount point:/mnt)
 ${font Oswald:size=12}${wireless_essid wlan0}${font}${alignr}${addr wlan0}
+${if_existing /proc/mounts /dev/sdc1}${font Oswald:size=12:Normal}External 1${font}${alignr}${fs_used /dev/sdc1}/${fs_size /dev/sdc1}
+${fs_bar 6,200 /mnt}
+${endif}
+
+# CPU usage
 ${wireless_link_bar wlan0}
 ${font Oswald:size=10:Normal}Download
 ${downspeedgraph wlan0 -l}
@@ -80,7 +87,6 @@ ${font Oswald:size=10:Normal}Upload
 ${upspeedgraph wlan0 -l}
 ${voffset -10}${totalup wlan0}${alignr}${upspeed wlan0}
 
-# CPU usage
 #${font Oswald:size=12:Normal}cpu usage
 #${font Oswald:size=10:Normal}Name${alignr}Pid    Cpu   Mem
 #${top name 1} ${alignr} ${top pid 1} ${top cpu 1} ${top mem 1}
